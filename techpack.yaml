@@ -3,6 +3,9 @@
 # library as ORFS ships it.
 schema: 1
 name: asap7
+# Everything here is public, so `techpack audit` refuses none of its names.
+# A private pack leaves this out.
+public: true
 # The liberties come from the ORFS image's asap7 platform (RVT, TT corner,
 # NLDM), the same list as the platform's TC_NLDM_LIB_FILES. They are
 # extracted and decompressed into the cache on first use and merged into one
@@ -34,6 +37,10 @@ tie:
 # Optional, for your own pack:
 #
 # deny_terms: ["mytech"]        # strings `techpack audit` refuses in commits
-# flow:                         # defaults below flow.yaml, env and CLI
+# flow:                         # defaults below the environment and CLI
 #   abc_script_file: abc/recipe.abc
 #   sv2v_docker_image: my-sv2v-image
+#   env: {CIRCT_FLOW_ADDER_ARCH: RIPPLE-CARRY}
+# pnr:                          # one of
+#   orfs_platform_dir: orfs-platform
+#   command: ["./pnr/run.sh"]

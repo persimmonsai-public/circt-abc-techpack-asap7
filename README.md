@@ -52,8 +52,15 @@ Copy this repository and edit `techpack.yaml`:
   into the pack (an `orfs:` section instead takes them from an ORFS platform).
 * `time_unit`, the `icg:` cell and its pin roles, `tie:` cells, `dont_use:`
   patterns, as here.
-* Optionally `flow:` defaults (an ABC script, the sv2v image, ...) and
-  `deny_terms:`.
+* Optionally `flow:` defaults (an ABC script, the sv2v image, the flow's
+  `CIRCT_FLOW_*` knobs under `env:`), a `pnr:` section (your own ORFS
+  platform directory, or a P&R command of your own), and `deny_terms:`.
+* `public: true` only if, as here, everything in the pack is public. Without
+  it, circt-abc's `techpack audit` and pre-commit hook refuse to let the
+  pack's cell names and `deny_terms` be committed to circt-abc.
+
+circt-abc's `examples/techpack-template/` is a pack on an invented library
+that shows every option, including a P&R command.
 
 `python3 -m circt_flow.techpack check <name>` verifies that every file exists
 and that the ICG and tie cells are in the liberties. Keep a private pack in a
