@@ -1,0 +1,6 @@
+circt-abc-techpack-asap7
+Copyright 2026 The circt-abc authors
+
+Licensed under the Apache License v2.0 with LLVM Exceptions (see LICENSE).
+Contains no ASAP7 library data; the library is read from the
+OpenROAD-flow-scripts asap7 platform at run time.
